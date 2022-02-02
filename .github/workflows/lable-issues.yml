@@ -1,0 +1,20 @@
+# This is a basic workflow to help you get started with Actions
+
+name: Lable issues
+on:
+  issues:
+    types:
+      - reopened
+      - opened
+      
+jobs:
+  label_issues:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+    steps:
+      - name: Label issues
+        uses: andymckay/labeler@1.0.2
+        with:
+          add-labels: "triage"
+          repo-token: ${{ secrets.GITHUB_TOKEN}}
