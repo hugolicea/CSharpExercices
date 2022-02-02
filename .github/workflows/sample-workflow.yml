@@ -1,0 +1,19 @@
+# This is a basic workflow to help you get started with Actions
+
+name: sample-workflow
+on: [push]
+jobs:
+  explore-first-github-workflow:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo " the job was automatically triggered by a ${{ github.event_name }} event."
+      - run: echo " This job is running on a ${{ runner.os }} server hosted by Github!"
+      - run: echo " This name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}"
+      - name: Check out repository code
+        uses: actions/checkout@v2
+      - run: echo " The ${{ github.repository }} repository has been cloned to the runner."
+      - run: echo " The workflow is now ready to test your code on the runner."
+      - name: Check out repository code
+        run: |
+          ls ${{ github.workspace }}
+      - run: echo " This job's satus is ${{ job.status }}."
